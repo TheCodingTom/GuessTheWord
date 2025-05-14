@@ -10,7 +10,7 @@ function App() {
     const result = await response.json();
     console.log(result);
     const randomSolution = result[Math.floor(Math.random() * result.length)];
-    console.log(randomSolution);
+    // console.log(randomSolution);
     setSolution(randomSolution.word);
   };
 
