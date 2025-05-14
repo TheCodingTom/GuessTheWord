@@ -2,21 +2,25 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 function App() {
-  const [solutions, setSolutions] = useState(null);
+  const [solution, setSolution] = useState(null);
 
   const getSolutions = async () => {
     const response = await fetch("http://localhost:3001/solutions");
     const result = await response.json();
     console.log(result);
+    const randomSolution = result[Math.floor(Math.random() * result.length)];
+    console.log(randomSolution);
+    setSolution(randomSolution.word);
   };
 
   useEffect(() => {
     getSolutions();
-  }, []);
+  }, [setSolution]);
 
   return (
     <div className="App">
       <h1>Wordle (Lingo)</h1>
+      {solution && <div>Solution is: {solution}</div>}
     </div>
   );
 }
