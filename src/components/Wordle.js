@@ -35,6 +35,7 @@ function Wordle({ solution }) {
   return (
     <div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
+      <h4>Used letters:</h4>
       <Keypad usedKeys={usedKeys} />
       {showModal && (
         <Modal isCorrect={isCorrect} turn={turn} solution={solution} />
