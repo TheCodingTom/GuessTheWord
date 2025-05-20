@@ -4,9 +4,11 @@ function Keypad({ usedKeys }) {
   const [letters, setLetters] = useState(null);
 
   const getLetters = async () => {
-    const response = await fetch("http://localhost:3001/letters");
+    const response = await fetch(
+      "https://wordsbythecodingtom.netlify.app/words.json"
+    );
     const result = await response.json();
-    setLetters(result);
+    setLetters(result.letters);
   };
 
   useEffect(() => {

@@ -6,10 +6,13 @@ function App() {
   const [solution, setSolution] = useState(null);
 
   const getSolutions = async () => {
-    const response = await fetch("http://localhost:3001/solutions");
+    const response = await fetch(
+      "https://wordsbythecodingtom.netlify.app/words.json"
+    );
     const result = await response.json();
-    console.log(result);
-    const randomSolution = result[Math.floor(Math.random() * result.length)];
+
+    const randomSolution =
+      result.solutions[Math.floor(Math.random() * result.solutions.length)];
     // console.log(randomSolution);
     setSolution(randomSolution.word);
   };
